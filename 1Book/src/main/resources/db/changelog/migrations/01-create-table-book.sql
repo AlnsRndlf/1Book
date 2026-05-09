@@ -1,3 +1,6 @@
+-- liquibase formatted sql
+-- changeset alonso:1
+
 create table book (
     isbn bigint primary key,
     title varchar(255),
