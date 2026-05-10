@@ -1,20 +1,62 @@
 package cl.duocuc._Book.Service;
 
 import cl.duocuc._Book.DTO.BookDTO;
+import cl.duocuc._Book.Model.Book;
 import cl.duocuc._Book.Repository.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class BookServiceImpl implements IBookService {
 
-    @Autowired
-    private BookRepository repository;
+    private final BookRepository repository;
 
+    private BookDTO toDTO(Book book) {
+        return new BookDTO(
+                book.getIsbn(),
+                book.getTitle(),
+                book.getAuthor(),
+                book.getYearPublicated(),
+                book.getStock()
+        );
+    }
+
+    private Book toEntity(BookDTO bookDTO) {
+        return new Book(
+                bookDTO.getIsbn(),
+                bookDTO.getTitle(),
+                bookDTO.getAuthor(),
+                bookDTO.getYearPublicated(),
+                bookDTO.getStock()
+        );
+    }
+
+
+    // metodos del implements
     @Override
     public List<BookDTO> findAll() {
-        return repository.findAll().stream().map(this.)
+        return repository.findAll().stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
     }
+
+    @Override
+    public BookDTO save(BookDTO bookDTO) {
+        return this.toDTO(repository.save(this.toEntity(bookDTO)));
+    }
+
+
+
+
+
+
+
+
+
+    @Override
+    public BookDTO
 }
