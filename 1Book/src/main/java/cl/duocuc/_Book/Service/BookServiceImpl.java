@@ -64,6 +64,11 @@ public class BookServiceImpl implements IBookService {
     @Override
     public BookDTO findByTitle(String title) {
         Book book = repository.findByTitle(title);
-        return this.toDTO(book);
+        if(book != null) {
+            return toDTO(book);
+        }
+        else {
+            return null;
+        }
     }
 }
