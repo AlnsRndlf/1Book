@@ -36,7 +36,7 @@ public class BookServiceImpl implements IBookService {
     }
 
 
-    // metodos del implements
+    // metodos del que implementa
     @Override
     public List<BookDTO> findAll() {
         return repository.findAll().stream()
@@ -49,14 +49,21 @@ public class BookServiceImpl implements IBookService {
         return this.toDTO(repository.save(this.toEntity(bookDTO)));
     }
 
-
-
-
-
-
-
-
+    @Override
+    public void deleteByIsbn(Long isbn) {
+        if(repository.existsById(isbn)) {
+            repository.deleteById(isbn);
+        }
+    }
 
     @Override
-    public BookDTO
+    public BookDTO findByIsbn(Long isbn) {
+        return repository.findById(isbn).map(this::toDTO).orElse(null);
+    }
+
+    @Override
+    public BookDTO findByTitle(String title) {
+        Book book = repository.findByTitle(title);
+        return this.toDTO(book);
+    }
 }
