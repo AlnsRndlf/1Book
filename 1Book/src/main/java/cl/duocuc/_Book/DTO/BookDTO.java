@@ -8,8 +8,8 @@ import lombok.*;
 @AllArgsConstructor @NoArgsConstructor
 public class BookDTO {
 
-    @Min(value = 13, message = "el ISBN tiene que ser de 13 digitos.")
-    @Max(value = 13, message = "el ISBN tiene que ser de 13 digitos.")
+    @Min(value = 1000000000000L, message = "el ISBN tiene que ser de 13 digitos.")
+    @Max(value = 9999999999999L, message = "el ISBN tiene que ser de 13 digitos.")
     @NotNull(message = "El ISBN es obligatorio.")
     private Long isbn;
 
