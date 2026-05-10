@@ -1,9 +1,6 @@
 package cl.duocuc._Book.DTO;
 
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 
@@ -11,6 +8,8 @@ import lombok.*;
 @AllArgsConstructor @NoArgsConstructor
 public class BookDTO {
 
+    @Min(value = 13, message = "el ISBN tiene que ser de 13 digitos.")
+    @Max(value = 13, message = "el ISBN tiene que ser de 13 digitos.")
     @NotNull(message = "El ISBN es obligatorio.")
     private Long isbn;
 
