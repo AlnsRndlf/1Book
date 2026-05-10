@@ -10,5 +10,4 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	// prueba pq xd se me ocurrio cambiar el username de github
 }
