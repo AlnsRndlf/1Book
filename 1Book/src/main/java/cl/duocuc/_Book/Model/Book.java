@@ -1,12 +1,10 @@
 package cl.duocuc._Book.Model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
-@Data
+@Data @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
 public class Book {
 
