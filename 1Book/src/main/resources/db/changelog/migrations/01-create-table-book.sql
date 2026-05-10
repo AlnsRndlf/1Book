@@ -8,3 +8,8 @@ create table book (
     year_publicated int,
     sotck int not null
 );
+
+-- changeset alonso:2
+
+ALTER TABLE book
+    CHANGE COLUMN sotck stock INT;
