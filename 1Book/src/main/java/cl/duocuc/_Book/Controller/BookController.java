@@ -35,7 +35,7 @@ public class BookController {
     }
 
     @GetMapping("/buscar/{title}")
-    public ResponseEntity<BookDTO> findByTitle(@RequestParam String title) {
+    public ResponseEntity<BookDTO> findByTitle(@PathVariable String title) {
         BookDTO book = service.findByTitle(title);
         if(book != null) {
             return ResponseEntity.ok(book);
@@ -47,9 +47,9 @@ public class BookController {
 
     @PostMapping
     public ResponseEntity<BookDTO> save(@Valid @RequestBody BookDTO bookDTO) {
-        BookDTO save = service.save(bookDTO);
-        if(save != null) {
-            return new ResponseEntity<>(service.save(bookDTO), HttpStatus.CREATED);
+        BookDTO saved = service.save(bookDTO);
+        if(saved != null) {
+            return new ResponseEntity<>(saved, HttpStatus.CREATED);
         } else
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
