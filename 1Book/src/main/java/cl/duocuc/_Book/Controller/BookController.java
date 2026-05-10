@@ -2,6 +2,7 @@ package cl.duocuc._Book.Controller;
 
 import cl.duocuc._Book.DTO.BookDTO;
 import cl.duocuc._Book.Service.IBookService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,7 +46,7 @@ public class BookController {
     }
 
     @PostMapping
-    public ResponseEntity<BookDTO> save(@RequestBody BookDTO bookDTO) {
+    public ResponseEntity<BookDTO> save(@Valid @RequestBody BookDTO bookDTO) {
         BookDTO save = service.save(bookDTO);
         if(save != null) {
             return new ResponseEntity<>(service.save(bookDTO), HttpStatus.CREATED);
