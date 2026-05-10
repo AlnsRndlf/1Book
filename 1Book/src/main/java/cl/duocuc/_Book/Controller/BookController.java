@@ -49,7 +49,8 @@ public class BookController {
         BookDTO save = service.save(bookDTO);
         if(save != null) {
             return new ResponseEntity<>(service.save(bookDTO), HttpStatus.CREATED);
-        }
+        } else
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @DeleteMapping("/{isbn}")
