@@ -13,3 +13,8 @@ create table book (
 
 ALTER TABLE book
     CHANGE COLUMN sotck stock INT;
+
+-- changeset alonso:3
+alter table book
+    modify column title varchar(255) not null,
+    modify column author varchar(255) not null;
