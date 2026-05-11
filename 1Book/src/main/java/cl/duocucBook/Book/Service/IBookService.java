@@ -1,6 +1,6 @@
-package cl.duocuc.Book.Service;
+package cl.duocucBook.Book.Service;
 
-import cl.duocuc.Book.DTO.BookDto;
+import cl.duocucBook.Book.DTO.BookDto;
 
 import java.util.List;
 

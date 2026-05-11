@@ -1,4 +1,4 @@
-package cl.duocuc.Book.Controller;
+package cl.duocucBook.Book.Controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

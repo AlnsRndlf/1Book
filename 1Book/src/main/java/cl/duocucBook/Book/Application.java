@@ -1,4 +1,4 @@
-package cl.duocuc.Book;
+package cl.duocucBook.Book;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

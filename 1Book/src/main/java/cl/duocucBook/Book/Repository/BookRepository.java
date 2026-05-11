@@ -1,7 +1,7 @@
-package cl.duocuc.Book.Repository;
+package cl.duocucBook.Book.Repository;
 
 
-import cl.duocuc.Book.Model.Book;
+import cl.duocucBook.Book.Model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
