@@ -71,4 +71,18 @@ public class BookServiceImpl implements IBookService {
             return null;
         }
     }
+
+    @Override
+    public BookDTO updateStock(Long isbn, int quantity) {
+        Book book = repository.findById(isbn).orElse(null);
+        if(book != null) {
+            int newStock = book.getStock() + quantity;
+            if(newStock < 0) {
+                throw new IllegalArgumentException("Stock no puede ser negativo");
+            }
+            book.setStock(newStock);
+            return this.toDTO(repository.save(book));
+        }
+        return null; //new IllegalArgumentException("libro no encontrado")
+    }
 }

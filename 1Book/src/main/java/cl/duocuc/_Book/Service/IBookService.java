@@ -10,5 +10,6 @@ public interface IBookService {
     BookDTO findByTitle(String title);
     BookDTO save(BookDTO bookDTO);
     void deleteByIsbn(Long isbn);
+    BookDTO updateStock(Long isbn, int quantity);
 
 }
