@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -24,24 +25,25 @@ public class BookController {
     }
 
     @GetMapping("/{isbn}")
-    public ResponseEntity<BookDto> findByIsbn(@PathVariable Long isbn) {
-        BookDto book = service.findByIsbn(isbn);
-        if(book != null) {
-            return ResponseEntity.ok(book);
+    public ResponseEntity<BookDto> findByIsbn(@PathVariable Long isbn) { // no deberia tmb modificar aca tmb a Optional<>
+        Optional<BookDto> book = service.findByIsbn(isbn);
+        if(book.isPresent()) {
+            return ResponseEntity.ok(book.get());
+
         }
         else {
-            return ResponseEntity.notFound().build();
+            throw new IllegalArgumentException("libro de isbn: " + isbn + " no encontrado");
         }
     }
 
     @GetMapping("/buscar/{title}")
     public ResponseEntity<BookDto> findByTitle(@PathVariable("title") String title) {
-        BookDto book = service.findByTitle(title);
-        if(book != null) {
-            return ResponseEntity.ok(book);
+        Optional<BookDto> book = service.findByTitle(title);
+        if(book.isPresent()) {
+            return ResponseEntity.ok(book.get());
         }
         else {
-            return ResponseEntity.notFound().build();
+            throw new IllegalArgumentException("libro de isbn: " + title + " no encontrado");
         }
     }
 

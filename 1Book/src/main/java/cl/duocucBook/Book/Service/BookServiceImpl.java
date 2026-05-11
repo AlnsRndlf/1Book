@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -59,18 +60,18 @@ public class BookServiceImpl implements IBookService {
     }
 
     @Override
-    public BookDto findByIsbn(Long isbn) {
-        return repository.findById(isbn).map(this::toDTO).orElse(null);
+    public Optional<BookDto> findByIsbn(Long isbn) {
+        return repository.findById(isbn).map(this::toDTO);
     }
 
     @Override
-    public BookDto findByTitle(String title) {
+    public Optional<BookDto> findByTitle(String title) {
         Book book = repository.findByTitle(title);
         if(book != null) {
-            return toDTO(book);
+            return Optional.of(this.toDTO(book));
         }
         else {
-            return null;
+            return Optional.empty();
         }
     }
 
