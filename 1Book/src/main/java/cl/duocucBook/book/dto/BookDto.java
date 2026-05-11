@@ -1,4 +1,4 @@
-package cl.duocucBook.Book.DTO;
+package cl.duocucBook.book.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.*;

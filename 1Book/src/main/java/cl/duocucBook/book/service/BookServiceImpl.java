@@ -1,8 +1,8 @@
-package cl.duocucBook.Book.Service;
+package cl.duocucBook.book.service;
 
-import cl.duocucBook.Book.DTO.BookDto;
-import cl.duocucBook.Book.Model.Book;
-import cl.duocucBook.Book.Repository.BookRepository;
+import cl.duocucBook.book.dto.BookDto;
+import cl.duocucBook.book.model.Book;
+import cl.duocucBook.book.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
