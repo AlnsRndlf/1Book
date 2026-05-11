@@ -1,7 +1,7 @@
-package cl.duocuc._Book.Controller;
+package cl.duocuc.Book.Controller;
 
-import cl.duocuc._Book.DTO.BookDTO;
-import cl.duocuc._Book.Service.IBookService;
+import cl.duocuc.Book.DTO.BookDTO;
+import cl.duocuc.Book.Service.IBookService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
