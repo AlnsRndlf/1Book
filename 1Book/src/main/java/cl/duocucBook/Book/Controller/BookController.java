@@ -35,7 +35,7 @@ public class BookController {
     }
 
     @GetMapping("/buscar/{title}")
-    public ResponseEntity<BookDto> findByTitle(@PathVariable String title) {
+    public ResponseEntity<BookDto> findByTitle(@PathVariable("title") String title) {
         BookDto book = service.findByTitle(title);
         if(book != null) {
             return ResponseEntity.ok(book);
