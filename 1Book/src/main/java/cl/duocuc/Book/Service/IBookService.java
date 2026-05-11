@@ -1,14 +1,14 @@
 package cl.duocuc.Book.Service;
 
-import cl.duocuc.Book.DTO.BookDTO;
+import cl.duocuc.Book.DTO.BookDto;
 
 import java.util.List;
 
 public interface IBookService {
-    List<BookDTO> findAll();
-    BookDTO findByIsbn(Long isbn);
-    BookDTO findByTitle(String title);
-    BookDTO save(BookDTO bookDTO);
+    List<BookDto> findAll();
+    BookDto findByIsbn(Long isbn);
+    BookDto findByTitle(String title);
+    BookDto save(BookDto bookDTO);
     void deleteByIsbn(Long isbn);
-    BookDTO updateStock(Long isbn, int quantity);
+    BookDto updateStock(Long isbn, int quantity);
 }

@@ -1,6 +1,6 @@
 package cl.duocuc.Book.Controller;
 
-import cl.duocuc.Book.DTO.BookDTO;
+import cl.duocuc.Book.DTO.BookDto;
 import cl.duocuc.Book.Service.IBookService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -19,13 +19,13 @@ public class BookController {
     private final IBookService service;
 
     @GetMapping
-    public ResponseEntity<List<BookDTO>> findAll() {
+    public ResponseEntity<List<BookDto>> findAll() {
         return ResponseEntity.ok().body(service.findAll());
     }
 
     @GetMapping("/{isbn}")
-    public ResponseEntity<BookDTO> findByIsbn(@PathVariable Long isbn) {
-        BookDTO book = service.findByIsbn(isbn);
+    public ResponseEntity<BookDto> findByIsbn(@PathVariable Long isbn) {
+        BookDto book = service.findByIsbn(isbn);
         if(book != null) {
             return ResponseEntity.ok(book);
         }
@@ -35,8 +35,8 @@ public class BookController {
     }
 
     @GetMapping("/buscar/{title}")
-    public ResponseEntity<BookDTO> findByTitle(@PathVariable String title) {
-        BookDTO book = service.findByTitle(title);
+    public ResponseEntity<BookDto> findByTitle(@PathVariable String title) {
+        BookDto book = service.findByTitle(title);
         if(book != null) {
             return ResponseEntity.ok(book);
         }
@@ -46,8 +46,8 @@ public class BookController {
     }
 
     @PostMapping
-    public ResponseEntity<BookDTO> save(@Valid @RequestBody BookDTO bookDTO) {
-        BookDTO saved = service.save(bookDTO);
+    public ResponseEntity<BookDto> save(@Valid @RequestBody BookDto bookDTO) {
+        BookDto saved = service.save(bookDTO);
         if(saved != null) {
             return new ResponseEntity<>(saved, HttpStatus.CREATED);
         } else
@@ -61,8 +61,8 @@ public class BookController {
     }
 
     @PatchMapping("/{isbn}/stock/{quantity}")
-    public ResponseEntity<BookDTO> updateStock(@PathVariable Long isbn, @PathVariable int quantity) {
-            BookDTO updated = service.updateStock(isbn, quantity);
+    public ResponseEntity<BookDto> updateStock(@PathVariable Long isbn, @PathVariable int quantity) {
+            BookDto updated = service.updateStock(isbn, quantity);
             if(updated != null) {
                 return ResponseEntity.ok(updated);
             }
