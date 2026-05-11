@@ -62,7 +62,6 @@ public class BookController {
 
     @PatchMapping("/{isbn}/stock/{quantity}")
     public ResponseEntity<BookDTO> updateStock(@PathVariable Long isbn, @PathVariable int quantity) {
-        try {
             BookDTO updated = service.updateStock(isbn, quantity);
             if(updated != null) {
                 return ResponseEntity.ok(updated);
@@ -71,8 +70,4 @@ public class BookController {
                 return ResponseEntity.notFound().build();
             }
         }
-        catch(IllegalArgumentException e) {
-            return ResponseEntity.badRequest().build();
-        }
-    }
 }

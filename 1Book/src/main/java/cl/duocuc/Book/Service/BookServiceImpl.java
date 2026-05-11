@@ -1,8 +1,8 @@
-package cl.duocuc._Book.Service;
+package cl.duocuc.Book.Service;
 
-import cl.duocuc._Book.DTO.BookDTO;
-import cl.duocuc._Book.Model.Book;
-import cl.duocuc._Book.Repository.BookRepository;
+import cl.duocuc.Book.DTO.BookDTO;
+import cl.duocuc.Book.Model.Book;
+import cl.duocuc.Book.Repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +35,6 @@ public class BookServiceImpl implements IBookService {
         );
     }
 
-
     // metodos del que implementa
     @Override
     public List<BookDTO> findAll() {
@@ -46,6 +45,9 @@ public class BookServiceImpl implements IBookService {
 
     @Override
     public BookDTO save(BookDTO bookDTO) {
+        if(repository.existsById(bookDTO.getIsbn())) {
+            throw new IllegalArgumentException("ya existe un libro con ese isbn");
+        }
         return this.toDTO(repository.save(this.toEntity(bookDTO)));
     }
 
@@ -83,6 +85,6 @@ public class BookServiceImpl implements IBookService {
             book.setStock(newStock);
             return this.toDTO(repository.save(book));
         }
-        return null; //new IllegalArgumentException("libro no encontrado")
+        throw new IllegalArgumentException("Libro no encontrado");
     }
 }

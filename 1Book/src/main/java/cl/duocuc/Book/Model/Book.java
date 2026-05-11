@@ -1,4 +1,4 @@
-package cl.duocuc._Book.Model;
+package cl.duocuc.Book.Model;
 
 import jakarta.persistence.*;
 import lombok.*;

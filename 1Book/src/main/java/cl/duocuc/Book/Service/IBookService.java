@@ -1,6 +1,6 @@
-package cl.duocuc._Book.Service;
+package cl.duocuc.Book.Service;
 
-import cl.duocuc._Book.DTO.BookDTO;
+import cl.duocuc.Book.DTO.BookDTO;
 
 import java.util.List;
 
@@ -11,5 +11,4 @@ public interface IBookService {
     BookDTO save(BookDTO bookDTO);
     void deleteByIsbn(Long isbn);
     BookDTO updateStock(Long isbn, int quantity);
-
 }
