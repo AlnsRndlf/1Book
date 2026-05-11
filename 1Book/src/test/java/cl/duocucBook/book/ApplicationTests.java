@@ -1,4 +1,4 @@
-package cl.duocucBook.Book;
+package cl.duocucBook.book;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
