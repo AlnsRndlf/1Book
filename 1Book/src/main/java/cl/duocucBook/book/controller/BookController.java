@@ -63,9 +63,9 @@ public class BookController {
     }
 
     @PatchMapping("/{isbn}/stock/{quantity}")
-    public ResponseEntity<BookDto> updateStock(@PathVariable Long isbn, @PathVariable int quantity) {
-            BookDto updated = service.updateStock(isbn, quantity);
-            if(updated != null) {
+    public ResponseEntity<Optional<BookDto>> updateStock(@PathVariable Long isbn, @PathVariable int quantity) {
+            Optional<BookDto> updated = service.updateStock(isbn, quantity);
+            if(updated.isPresent()) {
                 return ResponseEntity.ok(updated);
             }
             else {
