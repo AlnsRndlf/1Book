@@ -11,5 +11,5 @@ public interface IBookService {
     Optional<BookDto> findByTitle(String title);
     BookDto save(BookDto bookDTO);
     void deleteByIsbn(Long isbn);
-    Optional<BookDto> updateStock(Long isbn, int quantity);
+    BookDto updateStock(Long isbn, int quantity);
 }
